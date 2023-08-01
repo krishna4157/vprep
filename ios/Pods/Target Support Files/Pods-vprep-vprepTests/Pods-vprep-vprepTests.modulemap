@@ -1,0 +1,6 @@
+module Pods_vprep_vprepTests {
+  umbrella header "Pods-vprep-vprepTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

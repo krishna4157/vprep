@@ -1,0 +1,6 @@
+module Pods_vprep {
+  umbrella header "Pods-vprep-umbrella.h"
+
+  export *
+  module * { export * }
+}
