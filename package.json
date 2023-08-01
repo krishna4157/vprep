@@ -31,6 +31,7 @@
     "react-native-element-timer": "^2.0.0",
     "react-native-fs": "^2.20.0",
     "react-native-gesture-handler": "^2.5.0",
+    "react-native-gradle-plugin": "^0.71.19",
     "react-native-in-app-review": "^4.1.1",
     "react-native-paper": "^4.12.2",
     "react-native-parallax-header": "^1.1.4",
