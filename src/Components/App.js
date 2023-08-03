@@ -324,7 +324,7 @@ const App = () => {
   }
 
   return (
-    <>
+    <SafeAreaView style={{flex:1}}>
     {pageValue != "" && adsData ? <Provider theme={theme == "dark" ? darkTheme : whiteTheme}>
       <StatusBar barStyle={theme ? 'light-content' : 'dark-content'} />
        <Context.Provider value={{
@@ -364,7 +364,7 @@ const App = () => {
                   </View>
                   <View style={{ flex:1,margin:5,padding:5 }}>
                     <TouchableOpacity onPress={changeTheme} style={{backgroundColor: theme == "dark" ? "black" : "white",margin:5,marginRight:20,borderColor:theme == "light" ? "black" :  "grey",borderWidth:0,borderRadius:10, justifyContent:'center',flexDirection:"row"}}>
-                    <LottieView style={{ width: 40, height: theme == "dark" ?40 : 60, justifyContent:'center',alignSelf:'center' }} resizeMode='cover' source={theme == "dark" ? Images.moon : Images.sun} autoPlay loop={true} />
+                    <LottieView style={{ width: 40, height: theme == "dark" ?40 : 50,position:'absolute', justifyContent:'center',alignSelf:'center' }} resizeMode='cover' source={theme == "dark" ? Images.moon : Images.sun} autoPlay loop={true} />
                       {/* <Text style={{padding:10,alignSelf:'center', color: theme != "dark" ? "black" : "white", textTransform : "uppercase"}}>{theme}</Text> */}
                     </TouchableOpacity>
                   </View>
@@ -416,7 +416,7 @@ const App = () => {
       <Text style={{fontSize:25,color : theme != "light" ? "white" : "black"
 ,fontWeight:'bold',textAlign:'center'}}>Loading...</Text>
       </View>}
-    </>
+    </SafeAreaView>
   );
 };
 

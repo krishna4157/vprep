@@ -8,7 +8,6 @@ import { VictoryPie } from 'victory-native';
 import _ from 'lodash';
 import Images from '../assets/Images';
 import InAppReview from 'react-native-in-app-review';
-import * as StoreReview from 'react-native-store-review';
 import Rate, { AndroidMarket } from 'react-native-rate';
 import { ScrollView } from 'react-native';
 import ViewShot from 'react-native-view-shot';
@@ -335,8 +334,7 @@ const FinalScoreScreen = (props) => {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', height:'100%' }}>
-
-      {showScore ? <LottieView source={Images.wellDone} autoPlay loop={false} /> :
+      {showScore ? <LottieView source={Images.wellDone} autoPlay loop={false} style={{width:'100%', height:200}}/> :
             <ViewShot ref={ref} captureMode="mount">
 
         <View style={{ height: '100%', width: '100%',backgroundColor: showScore ? "white" : colors.background }}

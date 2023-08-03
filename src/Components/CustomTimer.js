@@ -74,7 +74,7 @@ export const Time = (props) => {
 
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center' }}>
+    <View style={{ justifyContent: 'center', width:'100%' }}>
 
       <ProgressBar progress={(mins * 60 + secs) / (demoData.length* 60)} color={color} />
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 5, alignItems: 'center' }}>

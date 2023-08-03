@@ -69,17 +69,18 @@ export class IntroductionPage extends React.Component {
               backgroundColor:'black',
               height: Dimensions.get('screen').height - 122,
                }}>
-            <View style={{height:Dimensions.get('screen').height/1.9,width:'100%',padding:theme == "dark" ? 70 : 0}}>
-            {index!=1 ? <LottieView source={item.text} ref={index} loop={index == 0 ? false : true} autoPlay resizeMode='cover' />
+
+            <View style={{height:Dimensions.get('screen').height/1.9,width:'100%',padding:theme == "dark" ? 70 : 0, paddingTop: 70}}>
+            {index!=1 ? <LottieView source={item.text} ref={index} loop={index == 0 ? false : true} autoPlay resizeMode='cover' style={{width:'100%',height:350}} />
             :<TouchableOpacity onPress={()=>{
               console.log(this.context);
               context.setAppTheme();
               // alert(JSON.stringify(this))
               // setAppTheme;
             }} style={{flex:1}} >
-            <LottieView source={theme == "dark" ? Images.moon : Images.sun} ref={index} loop={true} autoPlay resizeMode='cover' />
+            <LottieView source={theme == "dark" ? Images.moon : Images.sun} ref={index} loop={true} autoPlay resizeMode='cover' style={{width:'100%',height:300}} />
             </TouchableOpacity>}
-            {}
+            
 </  View>
 {/* {index == 0 && <Image source={require('./android/app/src/main/assets/ic_launcher.png')} style={{alignSelf:'center'}} />} */}
             <Text style={{color:'white', textAlign:"center", fontSize:index > 3 ? 20 : 25, padding:20}}>{item.title}</Text>

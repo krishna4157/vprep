@@ -288,6 +288,7 @@ const AdBanner2 = (props) => {
     return null;
   return (
   <View style={{justifyContent:'center', alignContent:'center', alignSelf:'center'}}>
+  <Text>{      props.id?.stringValue}</Text>
   <BannerAd
     unitId={
       props.id?.stringValue

@@ -1,0 +1,21 @@
+diff --git a/node_modules/@react-native-firebase/admob/android/build.gradle b/node_modules/@react-native-firebase/admob/android/build.gradle
+index b85d286..0b14c5b 100644
+--- a/node_modules/@react-native-firebase/admob/android/build.gradle
++++ b/node_modules/@react-native-firebase/admob/android/build.gradle
+@@ -82,6 +82,7 @@ if (!firebaseJSONAdmobAppIDString) {
+ }
+ 
+ android {
++  compileSdkVersion 33
+   defaultConfig {
+     multiDexEnabled true
+     manifestPlaceholders = [
+@@ -106,7 +107,7 @@ repositories {
+ 
+ dependencies {
+   api appProject
+-  implementation("com.google.android.gms:play-services-ads:19.8.0") { force = true; }
++  implementation "com.google.android.gms:play-services-ads:19.8.0"
+   implementation "com.google.android.ads.consent:consent-library:${ReactNative.ext.getVersion("ads", "consent")}"
+ }
+ 

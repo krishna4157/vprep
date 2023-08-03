@@ -1,7 +1,7 @@
 import { InterstitialAd, RewardedAd, RewardedAdEventType, TestIds,BannerAd, BannerAdSize } from "@react-native-firebase/admob";
 import { useNavigation } from "@react-navigation/native";
 import React, {useRef, useEffect, useState, useContext} from "react";
-import { ActivityIndicator } from "react-native";
+import { ActivityIndicator, Dimensions } from "react-native";
 import {View,Text, Animated, ScrollView} from "react-native";
 // import data from "../../data";
 import CustomRadioButton from "./CustomRadioButton";
@@ -268,14 +268,18 @@ export const HomeScreen = (props) => {
       renderAdUntilLoaded();
     }
 
-  
+    const windowHeight = Dimensions.get('window').height -10;
+    const screenHeight = Dimensions.get('screen').height -10;
+
     return (
-      <View style={{height:"100%",backgroundColor:colors.background}}>
+      <View style={{flex:1,backgroundColor:colors.background,marginBottom:screenHeight - windowHeight}}>
         <Animated.View style={{ flex: 1, opacity: fadeAnim, backgroundColor: colors.background }}>
         {submitPressed && <View style={{position:'absolute',zIndex:2,width:'100%',height:'100%',justifyContent:'center'}}>
         <ActivityIndicator size={60} />
         </View>}  
-          <ScrollView style={{ height: '80%', width: '100%', flexShrink: 1 }}>
+        <View style={{flex:1,flexDirection:'column', justifyContent:'space-between'}}>
+          <>
+          <ScrollView style={{ width: '100%', flexShrink: 1 }}>
             <View style={{ flexShrink: 1, flexWrap: 'wrap' }} >
               <View style={{ flexDirection: 'row', padding: 10, marginTop: 0 }}>
                 <Text style={{ fontSize: 18, fontWeight: 'bold', color: colors.textColor }}>{questionIndex + 1}. </Text>
@@ -329,12 +333,15 @@ export const HomeScreen = (props) => {
             {/* <Text>{JSON.stringify(savedAns)}</Text> */}
             <View style={{ height: 100 }}></View>
           </ScrollView>
-          <View style={{ height: '20%', padding: 10 }}>
+          </>
+          <>
+          <View style={{ padding: 10, flexWrap:'wrap' }}>
             {/* <Text style={{fontWeight:'bold',color:'black'}}>Correct : {correctAnsCount}</Text> */}
             <Text style={{ fontWeight: 'bold', color: colors.textColor }}>Total Questions : {demoData.length}</Text>
             <Time showInterstitialAd={showInterstitialAd} onShowAd={onShowAd} showRewardAd={showRewardAd} rewarded={""} savedAns={savedAns} onPressBackButton={onPressBackButton} onPressResetButton={onPressResetButton} demoData={demoData} questionIndex={questionIndex} onPressNextButton={onPressNextButton} mins={mins} setMins={setMins} secs={secs} setSecs={setSecs} resetTimer={resetTimer} t={t} tick={tick} />
           </View>
-  
+          </>
+              </View>
         </Animated.View>
        
         {bannerAdByEnv != "" && <AdBanner bannerAd={bannerAd} bannerAdByEnv={bannerAdByEnv} />}

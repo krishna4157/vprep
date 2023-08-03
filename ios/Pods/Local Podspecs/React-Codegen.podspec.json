@@ -1,6 +1,6 @@
 {
   "name": "React-Codegen",
-  "version": "0.69.0",
+  "version": "0.72.3",
   "summary": "Temp pod for generated files for React Native",
   "homepage": "https://facebook.com/",
   "license": "Unlicense",
@@ -11,36 +11,57 @@
   },
   "header_mappings_dir": "./",
   "platforms": {
-    "ios": "11.0"
+    "ios": "12.4"
   },
   "source_files": "**/*.{h,mm,cpp}",
   "pod_target_xcconfig": {
-    "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/boost\" \"$(PODS_ROOT)/RCT-Folly\" \"${PODS_ROOT}/Headers/Public/React-Codegen/react/renderer/components\" \"$(PODS_ROOT)/Headers/Private/React-Fabric\" \"$(PODS_ROOT)/Headers/Private/React-RCTFabric\""
+    "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/boost\" \"$(PODS_ROOT)/RCT-Folly\" \"${PODS_ROOT}/Headers/Public/React-Codegen/react/renderer/components\" \"$(PODS_ROOT)/Headers/Private/React-Fabric\" \"$(PODS_ROOT)/Headers/Private/React-RCTFabric\"",
+    "FRAMEWORK_SEARCH_PATHS": [
+
+    ]
   },
   "dependencies": {
-    "FBReactNativeSpec": [
-      "0.69.0"
-    ],
     "React-jsiexecutor": [
-      "0.69.0"
+
     ],
     "RCT-Folly": [
-      "2021.06.28.00-v2"
+
     ],
     "RCTRequired": [
-      "0.69.0"
+
     ],
     "RCTTypeSafety": [
-      "0.69.0"
+
     ],
     "React-Core": [
-      "0.69.0"
+
     ],
     "React-jsi": [
-      "0.69.0"
+
+    ],
+    "ReactCommon/turbomodule/bridging": [
+
     ],
     "ReactCommon/turbomodule/core": [
-      "0.69.0"
+
+    ],
+    "React-NativeModulesApple": [
+
+    ],
+    "glog": [
+
+    ],
+    "DoubleConversion": [
+
+    ],
+    "hermes-engine": [
+
+    ],
+    "React-rncore": [
+
+    ],
+    "FBReactNativeSpec": [
+
     ]
   }
 }

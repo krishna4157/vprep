@@ -54,11 +54,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Flipper-RSocket.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Flipper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -99,11 +94,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RNScreens.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>React-Codegen.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -124,12 +114,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>React-NativeModulesApple.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>React-RCTActionSheet.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>React-RCTAnimation.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>React-RCTAppDelegate.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -169,17 +169,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>React-bridging.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>React-callinvoker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>React-cxxreact.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>React-debug.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>React-hermes.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -209,7 +214,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>React-rncore.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>React-runtimeexecutor.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>React-runtimescheduler.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>React-utils.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -254,12 +274,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>libevent.xcscheme</key>
+		<key>hermes-engine.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>react-native-safe-area-context.xcscheme</key>
+		<key>libevent.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
