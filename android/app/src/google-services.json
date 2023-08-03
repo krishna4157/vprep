@@ -1,0 +1,41 @@
+{
+  "project_info": {
+    "project_number": "384518066369",
+    "firebase_url": "https://prep-f87be-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "prep-f87be",
+    "storage_bucket": "prep-f87be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:384518066369:android:6abc5b5f0e7038a89f0440",
+        "android_client_info": {
+          "package_name": "com.vprep"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "384518066369-m44srs8g50krkuhts236mmm0th7d86fp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw3TkVdC93uXqVfkL-VAQeNiqzsW6NKPw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "384518066369-m44srs8g50krkuhts236mmm0th7d86fp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-6130896341011703~9126898369"
+    }
+  ],
+  "configuration_version": "1"
+}
