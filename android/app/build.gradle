@@ -74,7 +74,11 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-
+	
+      compileOptions {
+          sourceCompatibility JavaVersion.VERSION_17
+          targetCompatibility JavaVersion.VERSION_17
+      }
     namespace "com.vprep"
     defaultConfig {
         applicationId "com.vprep"
