@@ -1,4 +1,6 @@
-import { InterstitialAd, RewardedAd, RewardedAdEventType, TestIds,BannerAd, BannerAdSize } from "@react-native-firebase/admob";
+// import {  RewardedAd, RewardedAdEventType, TestIds,BannerAd, BannerAdSize } from "@react-native-firebase/admob";
+import { RewardedAd,InterstitialAd, GAMBannerAd, BannerAdSize, TestIds, AdEventType } from 'react-native-google-mobile-ads'; 
+
 import { useNavigation } from "@react-navigation/native";
 import React, {useRef, useEffect, useState, useContext} from "react";
 import { ActivityIndicator } from "react-native";
@@ -328,7 +330,7 @@ export const AnswerScreen = (props) => {
 const AdBanner = (props) => {
     if (!props.bannerAd)
       return null;
-    return (<BannerAd
+    return (<GAMBannerAd
       unitId={'ca-app-pub-6130896341011703/4109062322'}
       size={BannerAdSize.ADAPTIVE_BANNER}
       requestOptions={{

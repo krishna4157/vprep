@@ -33,4 +33,3 @@ render.experimental.xml
 *.hprof
 node_modules
 
-ios/Pods

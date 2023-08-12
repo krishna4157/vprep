@@ -6,7 +6,9 @@
  * @flow strict-local
  */
 
- import { BannerAd, BannerAdSize } from '@react-native-firebase/admob';
+//  import { BannerAd, BannerAdSize } from '@react-native-firebase/admob';
+ import { RewardedAd, GAMBannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads'; 
+
 import { useNavigation } from '@react-navigation/native';
 import React, { useContext, useEffect } from 'react';
  import {
@@ -178,6 +180,16 @@ import Images from '../assets/Images';
       const containerStyle = {backgroundColor: 'transparent', padding: 20,zIndex:30, justifyContent:"center"};
       
     console.log("DATA : ",data);
+
+
+    const showAdIds = [];
+    
+    for(var i = 0; i < Object.keys(data.data).length ; i++){
+      showAdIds.push(Math.floor(Math.random() * (Object.keys(data.data).length -1)));      
+    }
+    
+
+
    return (
      <>
       
@@ -221,8 +233,9 @@ import Images from '../assets/Images';
        <Text style={{color:'white', textDecorationLine:'underline',fontWeight:'bold'}}>Click here to get a chance to be part and earn Money </Text>
        </TouchableOpacity>
        </View>
-       {Array.from(Array(Object.keys(data.data).length)).map((value,i) => 
-       (
+       {Array.from(Array(Object.keys(data.data).length)).map((value,i) => {
+
+       return (
         <>
          <Card
           onPress={()=> { navigation.navigate("Home", { testIndex : i+1 }) }}
@@ -248,9 +261,9 @@ import Images from '../assets/Images';
            </View>
            {/* {i%2 == 0 && <AdBanner2 bannerAd={bannerAd} />} */}
          </Card>
-                    {i < bannerArrayAdByEnv?.length -1 && bannerArrayAdByEnv.length != 0 && <AdBanner2 bannerAd={bannerAd} bannerArrayAdByEnv={bannerArrayAdByEnv} id={bannerArrayAdByEnv[i]} index={i} />}
+                    {showAdIds.includes(i) && <AdBanner2 bannerAd={bannerAd} bannerArrayAdByEnv={bannerArrayAdByEnv} ids={bannerArrayAdByEnv} index={i} />}
 </>
-       ))}
+       )})}
               <Animated.View style={[animatedStyles, { zIndex: -10, backgroundColor:'transparent'}]} />
            
        </ Animated.ScrollView>
@@ -264,9 +277,9 @@ import Images from '../assets/Images';
   console.log("BANNER : ",props.bannerAdByEnv);
   if (!props.bannerAd)
     return null;
-  return (<BannerAd
+  return (<GAMBannerAd
     unitId={props?.bannerAdByEnv}
-    size={BannerAdSize.ADAPTIVE_BANNER}
+    sizes={[BannerAdSize.FULL_BANNER]}
     requestOptions={{
       requestNonPersonalizedAdsOnly: true,
     }}
@@ -275,25 +288,27 @@ import Images from '../assets/Images';
 }
 
 const generateRandomNumberFromRange = (min,max) => {
-    const r = Math.random()*(max-min) + min
+    const r = Math.random()*(max-min);
     return Math.floor(r)
 }
 
 
 const AdBanner2 = (props) => {
-  const adSizesArray = [BannerAdSize.ADAPTIVE_BANNER,BannerAdSize.LARGE_BANNER,BannerAdSize.BANNER,BannerAdSize.FLUID,BannerAdSize.FULL_BANNER,BannerAdSize.LEADERBOARD,BannerAdSize.MEDIUM_RECTANGLE,BannerAdSize.SMART_BANNER,BannerAdSize.WIDE_SKYSCRAPER];
+  const adSizesArray = [BannerAdSize.ANCHORED_ADAPTIVE_BANNER,BannerAdSize.LARGE_BANNER,BannerAdSize.MEDIUM_RECTANGLE];
   const bannerAdIndex =generateRandomNumberFromRange(0,adSizesArray.length);
+  const id = Math.floor(Math.random() * (props?.ids?.length -1));
   console.log("ID ", props.id );
   if (!props.bannerAd)
     return null;
   return (
   <View style={{justifyContent:'center', alignContent:'center', alignSelf:'center'}}>
   <Text>{      props.id?.stringValue}</Text>
-  <BannerAd
+  <GAMBannerAd
     unitId={
-      props.id?.stringValue
+      props.ids[id]?.stringValue
     }
-    size={adSizesArray[bannerAdIndex]}
+    sizes={[adSizesArray[bannerAdIndex]
+    ]}
     
     requestOptions={{
       requestNonPersonalizedAdsOnly: true,

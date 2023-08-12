@@ -1,4 +1,4 @@
-import { InterstitialAd, RewardedAd, RewardedAdEventType, TestIds,BannerAd, BannerAdSize } from "@react-native-firebase/admob";
+import { InterstitialAd, RewardedAd, RewardedAdEventType, TestIds,GAMBannerAd, BannerAdSize } from "react-native-google-mobile-ads";
 import { useNavigation } from "@react-navigation/native";
 import React, {useRef, useEffect, useState, useContext} from "react";
 import { ActivityIndicator, Dimensions } from "react-native";
@@ -10,6 +10,7 @@ import _ from "lodash";
 import { Time } from './CustomTimer';
 import { useTheme } from "react-native-paper";
 import Context from "../../Context";
+import { AdEventType } from "@react-native-firebase/admob";
 
 const adUnitId = __DEV__ ? TestIds.INTERSTITIAL : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
 
@@ -135,24 +136,40 @@ export const HomeScreen = (props) => {
       keywords: ['fashion', 'clothing'],
     });
   
-    const eventListener1 = rewarded.onAdEvent((type, error, reward) => {
-      console.log("data :", type,error,reward);
-      if (type === RewardedAdEventType.LOADED && !adLoaded) {
-        setAdLoaded(true);
-        setTimeout(()=> {
-          rewarded.show().catch((e) => {
-            console.log("error : ", e);
-          });
-        }, 3000)      
+    const eventListener1 = rewarded.addAdEventListener(RewardedAdEventType.LOADED,()=>{
+      if (!adLoaded) {
+            setAdLoaded(true);
+            setTimeout(()=> {
+              rewarded.show().catch((e) => {
+                console.log("error : ", e);
+              });
+            }, 3000);
+      }
+    });
+
+    const eventListener2 = rewarded.addAdEventListener(RewardedAdEventType.EARNED_REWARD,()=>{
+            clearInterval(adProp);
+            navigation.navigate("FinalScoreScreen", { savedAns: savedAns, testIndex : testIndex  });
+    });
+
+    // .onAdEvent((type, error, reward) => {
+    //   console.log("data :", type,error,reward);
+    //   if (type === RewardedAdEventType.LOADED && !adLoaded) {
+    //     setAdLoaded(true);
+    //     setTimeout(()=> {
+    //       rewarded.show().catch((e) => {
+    //         console.log("error : ", e);
+    //       });
+    //     }, 3000)      
         
-      }
-      if (type === "closed") {
-        console.log('User earned reward of ', reward);
-        clearInterval(adProp);
-        // console.log("value : ", val);
-        navigation.navigate("FinalScoreScreen", { savedAns: savedAns, testIndex : testIndex  });
-      }
-          });
+    //   }
+    //   if (type === "closed") {
+    //     console.log('User earned reward of ', reward);
+    //     clearInterval(adProp);
+    //     // console.log("value : ", val);
+    //     navigation.navigate("FinalScoreScreen", { savedAns: savedAns, testIndex : testIndex  });
+    //   }
+    //       });
   
     
   
@@ -258,6 +275,7 @@ export const HomeScreen = (props) => {
         // navigation.navigate("FinalScoreScreen", { savedAns: savedAns, testIndex : testIndex  });
 
         eventListener1();
+        eventListener2();
       }
     }
   
@@ -358,14 +376,14 @@ const generateRandomNumberFromRange = (min,max) => {
 }
 
 const AdBanner = React.memo((props) => {
-  const adSizesArray = [BannerAdSize.ADAPTIVE_BANNER,BannerAdSize.LARGE_BANNER,BannerAdSize.BANNER,BannerAdSize.FLUID,BannerAdSize.FULL_BANNER,BannerAdSize.LEADERBOARD,BannerAdSize.MEDIUM_RECTANGLE,BannerAdSize.SMART_BANNER];
+  const adSizesArray = [BannerAdSize.ANCHORED_ADAPTIVE_BANNER,BannerAdSize.LARGE_BANNER,BannerAdSize.BANNER,BannerAdSize.MEDIUM_RECTANGLE,BannerAdSize.MEDIUM_RECTANGLE];
   const bannerAdIndex =generateRandomNumberFromRange(0,adSizesArray.length-1);
   
     if (!props.bannerAd)
       return null;
-    return (<BannerAd
+    return (<GAMBannerAd
       unitId={props.bannerAdByEnv}
-      size={adSizesArray[bannerAdIndex]}
+      sizes={[adSizesArray[bannerAdIndex]]}
       requestOptions={{
         requestNonPersonalizedAdsOnly: true,
       }}

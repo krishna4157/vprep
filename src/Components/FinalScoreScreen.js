@@ -264,7 +264,7 @@ const FinalScoreScreen = (props) => {
 
         const options= {
           url : `data:image/png;base64,`+res,
-          message : "checkout my quiz score, this application works amazing to  assess and improve my current affairs for competitive exams like UPSC CSE, State PSE's, SSC  ect.Install it for free on google play store instantly with this link https://play.google.com/store/apps/details?id=com.vprep"
+          message : "checkout my quiz score, this application works amazing to  access and improve my Knowledge for competitive exams. Install it for free on google play store instantly with this link https://play.google.com/store/apps/details?id=com.vprep"
         };
         // console.log("do something with ", uri);
         Share.open(options).then((res) => {

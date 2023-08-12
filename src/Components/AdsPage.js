@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, View } from 'react-native';
-import { InterstitialAd,RewardedAdEventType, AdEventType, TestIds,RewardedAd } from '@react-native-firebase/admob';
+import { GAMBannerAd, BannerAdSize } from 'react-native-google-mobile-ads'; 
+import { InterstitialAd, TestIds, AdEventType } from 'react-native-google-mobile-ads';
 
 const adUnitId = __DEV__ ? TestIds.INTERSTITIAL : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
 
