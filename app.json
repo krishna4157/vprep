@@ -1,4 +1,8 @@
 {
   "name": "vprep",
-  "displayName": "vprep"
+  "displayName": "vprep",
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-6130896341011703~9126898369",
+    "ios_app_id": "ca-app-pub-6130896341011703~9126898369"
+  }
 }
