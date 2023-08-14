@@ -80,8 +80,8 @@ android {
         applicationId "com.vprep"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 20094
-        versionName "1.9.4"
+        versionCode 20095
+        versionName "1.9.5"
     }
 
     signingConfigs {
