@@ -290,7 +290,7 @@ export const HomeScreen = (props) => {
     const screenHeight = Dimensions.get('screen').height -10;
 
     return (
-      <View style={{flex:1,backgroundColor:colors.background,marginBottom:screenHeight - windowHeight}}>
+      <View style={{flex:1,backgroundColor:colors.background,marginBottom:0}}>
         <Animated.View style={{ flex: 1, opacity: fadeAnim, backgroundColor: colors.background }}>
         {submitPressed && <View style={{position:'absolute',zIndex:2,width:'100%',height:'100%',justifyContent:'center'}}>
         <ActivityIndicator size={60} />
